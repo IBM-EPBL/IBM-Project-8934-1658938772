@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>🚗 🏎 Car Price Prediction 🚙 🚘 </title>
+    </head>
+    
+<style>
+
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: bolder;
+}
+
+
+input[type=submit] {
+  width: 80%;
+  background-color: red;
+  opacity: 0.7;
+  color:black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size:100;
+  font-weight: bolder;
+}
+
+
+input[type=submit]:hover {
+  background-color: red;
+  opacity: 0.9;
+}
+form{
+    border-radius: 10px;
+    padding-top: 5%;
+    font-weight: bolder;
+}
+div {
+ 
+  border-radius: 5px;
+  margin-left: 35%;
+  width: 30%;
+  
+}
+h1{
+    color:color-blue;
+    font-size: 40px;
+    font-weight: bolder;
+}
+h3{
+  color: whitesmoke;
+  font-size: 30px;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-style: italic;
+  padding: 14px 20px;
+}
+
+body {
+            
+            background-image: url("static/images/carbackgroung.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 0px;
+        }
+       
+</style>
+
+<body>
+
+<h1>🚗 🏎 Car Price Prediction 🚙 🚘 </h1>
+
+<div>
+ 
+ <form action="{{ url_for('predict')}}" method="post" style="background-color:#E6E6FA">
+
+<label for="Year">Year of Purchase 💰</label><br>
+<input type="text" id="Year" name="Year" placeholder="For example: 2014/2015...." required="required"><br>
+<label for="Present_Price">Showroom Price ₹ (in lakhs)</label><br>
+<input type="text" id="Present_Price" name="Present_Price" placeholder="For example: 3.4 (for 3.4 lakhs)" required="required"><br>
+<label for="Kms_Driven">Kilometers Driven 🚙</label><br>
+<input type="text" id="Kms_Driven" name="Kms_Driven" placeholder="For example: 50000 (for 50000 kms)" required="required"><br>
+     
+
+<label for="Owner">No. of Owners 👨</label><br>
+<select id="owner" name="Owner">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="3">3</option>
+    </select><br>
+<label for="Fuel_Type_Petrol">Fuel ⛽</label><br>
+    <select id="Fuel_Type_Petrol" name="Fuel_Type_Petrol" required="required">
+      <option value="Petrol">Petrol ⛽</option>
+      <option value="Diesel">Diesel ⛽</option>
+      <option value="Cng">CNG ⛽</option>
+    </select><br>
+<label for="Seller_Type_Individual">Owner type 🧔‍</label><br>
+    <select id="Seller_Type_Individual" name="Seller_Type_Individual" required="required">
+      <option value="dealer">Dealer 👨‍</option>
+      <option value="individual">Individual 🧑‍</option>
+      </select><br>
+<label for="Transmission_Manual ">Transmission Type ⚙️</label><br>
+    <select id="Transmission_Manual" name="Transmission_Manual" required="required">
+      <option value="manual car">Manual 🚗</option>
+      <option value="automatic car ">Automatic 🚙</option>
+     </select> <br>
+     
+         
+<input type="submit" value="Calculate Selling Price">
+</form>
+</div>
+    
+
+<h3>{{ prediction_text }}</h3>
+
+</body>
+</html>
